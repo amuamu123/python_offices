@@ -14,7 +14,6 @@ def fill_image(image):
     else:
         new_image.paste(image, (int((new_image_length - width) / 2),0))
     return new_image
-
 #切图
 def cut_image(image):
     width, height = image.size
@@ -30,7 +29,6 @@ def cut_image(image):
     image_list = [image.crop(box) for box in box_list]
 
     return image_list
-
 #保存
 def save_images(image_list):
     index = 1
@@ -38,14 +36,11 @@ def save_images(image_list):
         image.save('./result/python'+str(index) + '.png', 'PNG')
         index += 1
 
-
-
 if __name__ == '__main__':
-    file_path = "teng.jpeg"
-    image = Image.open(file_path)
-    #image.show()
-    image = fill_image(image)
-    image_list = cut_image(image)
-    save_images(image_list)
+    image = Image.open("teng.jpeg")#放入图片路径
+
+    image = fill_image(image) #填充
+    image_list = cut_image(image) #切割
+    save_images(image_list) #保存
 
     

@@ -1,11 +1,7 @@
-# 案例 1 ：批量生成法务函
-# 目标：把【封号名单.xlsx】工作簿中的每个封号人员的名字和微信号添加到【法务函模板.docx】Word 文件对应的位置上，并将【法务函模板.docx】Word 文件另存为【法务函-XXX.docx】 Word 文件
-# 请随时查看知识库和案例练习助手，与自己编写代码的步骤和内容比对参考，训练思维
 # 案例 1：批量生成法务函
 from docx import Document
 from docx.shared import Pt
 from openpyxl import load_workbook
-import os
 
 # 打开【封号名单.xlsx】工作簿，获取【封号人员】工作表
 title_wb = load_workbook('../工作/封号名单.xlsx')

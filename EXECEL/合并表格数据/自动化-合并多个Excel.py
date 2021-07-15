@@ -4,11 +4,12 @@ import openpyxl
 把要合并的excel放在一个文件夹里，
 输入文件夹绝对路径即可
 '''
-def get_filename(filepath):
+def get_filename(filepath): # 获取文件路径
     global datamall
     datamall=[]
-    for files in os.listdir(filepath):
+    for files in os.listdir(filepath): 
         files = filepath +'\\'+ files
+        
         read_xl(files)
     new_func(datamall)
 

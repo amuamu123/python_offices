@@ -1,3 +1,0 @@
-xlrd
-python-docx
-re

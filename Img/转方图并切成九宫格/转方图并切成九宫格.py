@@ -1,5 +1,7 @@
 from PIL import Image
 import sys
+import winreg
+import os
 
 #将图片填充为正方形
 def fill_image(image):
@@ -31,14 +33,17 @@ def cut_image(image):
     return image_list
 #保存
 def save_images(image_list):
+    Desktoppath = winreg.QueryValueEx(winreg.OpenKey(winreg.HKEY_CURRENT_USER,r'Software\Microsoft\Windows\CurrentVersion\Explorer\Shell Folders'), "Desktop")[0]#获取电脑系统桌面路径
+    os.makedirs(Desktoppath+"\\result") #创建一个文件夹
+    newfiledirs = Desktoppath+"\\result"
     index = 1
     for image in image_list:
-        image.save('./result/python'+str(index) + '.png', 'PNG')
+        image.save(newfiledirs+"\\"+str(index) + '.png', 'PNG')
         index += 1
-
+        
 if __name__ == '__main__':
-    image = Image.open("teng.jpeg")#放入图片路径
-
+    文件路径 = input('请输入你的转化的文件路径：')
+    image = Image.open(文件路径)#放入图片路径
     image = fill_image(image) #填充
     image_list = cut_image(image) #切割
     save_images(image_list) #保存

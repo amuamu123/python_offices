@@ -9,7 +9,6 @@ def get_filename(filepath): # 获取文件路径
     datamall=[]
     for files in os.listdir(filepath): 
         files = filepath +'\\'+ files
-        
         read_xl(files)
     new_func(datamall)
 

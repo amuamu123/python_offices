@@ -1,6 +1,7 @@
 import os
 from PyPDF2 import PdfFileReader,PdfFileMerger
-def auto_input():
+
+def auto_input(): #合并PDF为一份
     result_pdf= PdfFileMerger() #新建实例对象
     for pdf in os.listdir(path):  #遍历文件夹
         with open (pdf,'rb') as fp:  # 打开要合并的子PDF

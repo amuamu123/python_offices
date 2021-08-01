@@ -2,7 +2,6 @@ from PIL import Image
 import sys
 import winreg
 import os
-
 #将图片填充为正方形
 def fill_image(image):
     width, height = image.size
@@ -42,7 +41,7 @@ def save_images(image_list):
         index += 1
         
 if __name__ == '__main__':
-    文件路径 = input('请输入你的转化的文件路径：')
+    文件路径 = input('请输入你的转化的文件路径（别忘了加文件后缀名哦）：')
     image = Image.open(文件路径)#放入图片路径
     image = fill_image(image) #填充
     image_list = cut_image(image) #切割

@@ -5,6 +5,13 @@ import winreg
 from pathlib import Path
 from openpyxl.styles import PatternFill, Alignment, Side, Border
 
+#数据清洗(path) 
+#print(wb.isna()) # 检查是否有缺失值【True 和 NaN 代表的就是缺失数据。】
+#print(wb.head())  # 查看前五行【True 和 NaN 代表的就是缺失数据。】
+#print(wb.tail())  # 查看前五行【True 和 NaN 代表的就是缺失数据。】
+#print(wb[wb.duplicated()])#打印重复行
+#print(wb.info()) # 打印整个表数据
+
 ## 新建桌面文件夹
 Desktoppath = winreg.QueryValueEx(winreg.OpenKey(winreg.HKEY_CURRENT_USER,r'Software\Microsoft\Windows\CurrentVersion\Explorer\Shell Folders'), "Desktop")[0]#获取电脑系统桌面路径
 try:
@@ -110,7 +117,6 @@ def 数据分组保存(path,name):
         writer = Desktoppath+'\\{}班考试表.xlsx'.format(n)
         i[1].to_excel(writer,header = True, index = None) # 生成表格
         n +=1
-
         wb = openpyxl.load_workbook(writer)
         ws = wb.active# 打开工作表
         ws['E1'] = '考试号'

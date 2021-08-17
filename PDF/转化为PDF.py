@@ -109,11 +109,5 @@ def 转化(Desktoppath):
     pdfConverter.run_conver()
 
 if __name__ == "__main__":
-    Desktoppath = winreg.QueryValueEx(winreg.OpenKey(winreg.HKEY_CURRENT_USER,r'Software\Microsoft\Windows\CurrentVersion\Explorer\Shell Folders'), "Desktop")[0]#获取电脑系统桌面路径
-    try:
-        os.makedirs(Desktoppath+"\\考场汇总") #创建一个文件夹
-    except:
-        pass
-    DesktopPDFpath = Desktoppath + '\\用Python生成PDF'
     path = input('输入你要转化的文件路径')
     转化(path)

@@ -8,7 +8,7 @@ def mqq(filepath,imagepath):
     from email.mime.image import MIMEImage
     form_addr='1234@qq.com'
     password='mygpbxwgaoozbfjj'#输入示范、16位无空格
-    to_addrs=['1234@qq.com']#多个人用，隔开例：['1234@qq.com','1234@sina.com']
+    to_addrs=['1234@qq.com','1234@qq.com']#多个人用，隔开例：['1234@qq.com','1234@sina.com']
     smtp_server='smtp.qq.com'
     #smtp_server='smtp.sina.cn' #选择你对应的邮箱接口
     #smtp_server='smtp.163.com' #选择你对应的邮箱接口
@@ -42,6 +42,16 @@ def mqq(filepath,imagepath):
 def job():
     mqq(r"语法地图.XLSX",r'cat-5233986.jpg')
 schedule.every().friday.at("18:00").do(job)
+# schedule.every(10).minutes.do(job)
+# schedule.every().hour.do(job)
+# schedule.every().day.at("10:30").do(job)
+# schedule.every().monday.do(job)
+# schedule.every().wednesday.at("13:15").do(job)
+# 每隔10分钟执行一次任务
+# 每隔一小时执行一次任务
+# 每天10:30执行一次任务
+# 每周一的这个时候执行一次任务
+# 每周三13:15执行一次任务
 while True:
     schedule.run_pending()
     time.sleep(1)
